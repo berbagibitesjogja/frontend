@@ -150,7 +150,7 @@ export default function Home() {
               </div>
 
               <h2 className="font-bold text-navy text-4xl">
-                <CountUp enableScrollSpy={true} end={1470} />+
+                <CountUp enableScrollSpy={true} end={2002} />+
               </h2>
               <p className="font-medium">Kg Makanan Diselamatkan</p>
               <div className="bg-slate-400 h-0.5 w-10 m-auto"></div>
@@ -165,7 +165,7 @@ export default function Home() {
                 <ForkKnife className="fill-navy text-navy" />
               </div>
               <h2 className="font-bold text-navy text-4xl">
-                <CountUp enableScrollSpy={true} end={6940} />+
+                <CountUp enableScrollSpy={true} end={9522} />+
               </h2>
               <p className="font-medium">Porsi Dibagikan</p>
               <div className="bg-slate-400 h-0.5 w-10 m-auto"></div>
@@ -180,7 +180,7 @@ export default function Home() {
                 <Handshake className="text-navy" />
               </div>
               <h2 className="font-bold text-navy text-4xl">
-                <CountUp enableScrollSpy={true} end={10} />+
+                <CountUp enableScrollSpy={true} end={17} />+
               </h2>
               <p className="font-medium">Mitra Donatur</p>
               <div className="bg-slate-400 h-0.5 w-10 m-auto"></div>
