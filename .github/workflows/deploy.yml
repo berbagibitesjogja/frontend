@@ -1,14 +1,14 @@
-name: Deploy NextJS
+name: Deploy Frontend Apps to Production
 
 on:
   push:
     branches:
-      - main
+      - frontend
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: BBJVPS
+    environment: BERBAGIBITESJOGJA
 
     steps:
       - name: Checkout repository
@@ -36,7 +36,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    environment: BBJVPS
+    environment: BERBAGIBITESJOGJA
 
     steps:
       - name: Deploy on VPS
