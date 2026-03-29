@@ -74,7 +74,7 @@ export default async function Page({
       <div className="flex flex-row items-center justify-items-start mt-8 md:hidden">
         <Image
           className="rounded-full mr-2 "
-          src={post.authors?.[0]?.avatar_url || ""}
+          src={post.authors?.[0]?.avatar_url || "/plain-logo-blue.png"}
           alt={post.authors?.[0]?.display_name || ""}
           width={46}
           height={46}

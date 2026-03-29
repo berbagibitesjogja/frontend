@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface ProgramAttribute {
-  image: {
+  image?: {
     source_url: string;
     width: number;
     height: number;
@@ -14,8 +14,8 @@ interface ProgramAttribute {
   excerpt: string;
   slug: string;
   date: string;
-  authorName: string;
-  authorImage: string;
+  authorName?: string;
+  authorImage?: string;
 }
 function formatDate(date: string): string {
   const d = new Date(date);
@@ -42,6 +42,12 @@ export default function NewsCard(props: ProgramAttribute) {
   const { image, alt_image, title, slug, date, authorName, authorImage } =
     props;
 
+  const fallbackImageSrc = "/shareable-card-preview.jpg";
+  const fallbackAvatarSrc = "/plain-logo-blue.png";
+  const imageSrc = image?.source_url || fallbackImageSrc;
+  const avatarSrc = authorImage || fallbackAvatarSrc;
+  const avatarAlt = authorName || "Author";
+
   return (
     <Link
       href={`/news/${slug}`}
@@ -49,8 +55,8 @@ export default function NewsCard(props: ProgramAttribute) {
     >
       <Image
         className="rounded-xl w-full aspect-[4/3] object-cover"
-        src={image.source_url}
-        alt={alt_image}
+        src={imageSrc}
+        alt={alt_image || title}
         width={400}
         height={300}
       />
@@ -68,8 +74,8 @@ export default function NewsCard(props: ProgramAttribute) {
       <div className="flex flex-row items-center justify-items-start mt-auto">
         <Image
           className="rounded-full mr-2"
-          src={authorImage}
-          alt={authorName}
+          src={avatarSrc}
+          alt={avatarAlt}
           width={46}
           height={46}
         />

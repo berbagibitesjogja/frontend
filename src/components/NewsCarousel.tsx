@@ -16,7 +16,7 @@ import Autoplay from "embla-carousel-autoplay";
 
 interface ProgramAttribute {
   id: number;
-  image: {
+  image?: {
     source_url: string;
     width: number;
     height: number;
@@ -35,6 +35,7 @@ interface CarouselProps {
 }
 
 export function CarouselTry({ articles }: CarouselProps) {
+  const fallbackImageSrc = "/shareable-card-preview.jpg";
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -77,8 +78,8 @@ export function CarouselTry({ articles }: CarouselProps) {
               <Link href={`/news/${article.slug}`} className="block">
                 <div className="relative w-full md:aspect-[21/9] aspect-[9/12] rounded-lg overflow-hidden">
                   <Image
-                    src={article.image.source_url}
-                    alt={article.alt_image}
+                    src={article.image?.source_url || fallbackImageSrc}
+                    alt={article.alt_image || article.title}
                     fill
                     className="object-cover z-0"
                   />

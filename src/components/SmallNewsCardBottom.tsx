@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface ProgramAttribute {
-  image: {
+  image?: {
     source_url: string;
     width: number;
     height: number;
@@ -14,8 +14,8 @@ interface ProgramAttribute {
   excerpt: string;
   slug: string;
   date: string;
-  authorName: string;
-  authorImage: string;
+  authorName?: string;
+  authorImage?: string;
   orientation?: "horizontal" | "vertical";
 }
 function formatDate(date: string): string {
@@ -43,6 +43,12 @@ export default function SmolNewsCard(props: ProgramAttribute) {
   const { image, alt_image, title, slug, date, authorName, authorImage } =
     props;
 
+  const fallbackImageSrc = "/shareable-card-preview.jpg";
+  const fallbackAvatarSrc = "/plain-logo-blue.png";
+  const imageSrc = image?.source_url || fallbackImageSrc;
+  const avatarSrc = authorImage || fallbackAvatarSrc;
+  const avatarAlt = authorName || "Author";
+
   return (
     <Link
       href={`/news/${slug}`}
@@ -50,10 +56,10 @@ export default function SmolNewsCard(props: ProgramAttribute) {
     >
       <Image
         className="rounded-xl w-full aspect-[4/3] object-cover"
-        src={image.source_url}
-        alt={alt_image}
-        width={image.width}
-        height={image.height}
+        src={imageSrc}
+        alt={alt_image || title}
+        width={image?.width ?? 400}
+        height={image?.height ?? 300}
       />
       <h1 className="text-gray-600 font-sm mt-2">{formatDate(date)}</h1>
       <h1 className="text-navy font-semibold text-xl my-2">{title}</h1>
@@ -69,8 +75,8 @@ export default function SmolNewsCard(props: ProgramAttribute) {
       <div className="flex flex-row items-center justify-items-start mt-auto">
         <Image
           className="rounded-full mr-2"
-          src={authorImage}
-          alt={authorName}
+          src={avatarSrc}
+          alt={avatarAlt}
           width={32}
           height={32}
         />
