@@ -2231,7 +2231,7 @@ function getRandomWords(count = 3) {
 }
 export const dynamic = "force-dynamic";
 export default function Page() {
-  const phoneNumber = "6285117773642"; // change to target number
+  const phoneNumber = "6285111398765"; // change to target number
   const randomText = encodeURIComponent(getRandomWords(300));
   const url = `https://wa.me/${phoneNumber}?text=${randomText}`;
 
