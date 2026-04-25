@@ -2230,8 +2230,15 @@ function getRandomWords(count = 3) {
   return chunked.map((line) => line.join(" ")).join("\n\n");
 }
 export const dynamic = "force-dynamic";
-export default function Page() {
-  const phoneNumber = "6285111398765"; // change to target number
+export default async function Page() {
+  //get phone number from api
+  const getBotNumber = async () => {
+    const response = await fetch('https://berbagibitesjogja.com/app/api/botnumber');
+    const data = await response.json();
+    return data.bot_number;
+  };
+
+  const phoneNumber = await getBotNumber(); // change to target number
   const randomText = encodeURIComponent(getRandomWords(300));
   const url = `https://wa.me/${phoneNumber}?text=${randomText}`;
 
