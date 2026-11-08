@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import ArrowLeft from 'public/svg/arrow-left.svg'
 import ArrowRight from 'public/svg/arrow-right.svg'
-import { CircleCheck, ClipboardPen, Handshake, Leaf, Package, Phone, ThermometerSun, Utensils } from 'lucide-react';
+import { CircleCheck, ClipboardPen, Handshake, Package, Phone, ThermometerSun, Utensils } from 'lucide-react';
 import Ajakan from '@/components/Ajakan';
 import StoryRescueCard from '@/components/StoryRescueCard';
 
@@ -170,7 +170,7 @@ export default function Page() {
         </div>
 
         {/* Statistics Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 px-6 md:px-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 px-6 md:px-32">
           <div className="bg-white shadow-md rounded-lg p-6">
             <div className='flex gap-x-3'>
               <div className='bg-navy-light p-4 rounded-full w-max'>
@@ -197,20 +197,6 @@ export default function Page() {
             </div>
             <div className="bg-navy-light h-2 rounded-full mt-4">
               <div className="bg-navy h-2 rounded-full w-[70%]"></div>
-            </div>
-          </div>
-          <div className="bg-white shadow-md rounded-lg p-6">
-            <div className='flex gap-x-3'>
-              <div className='bg-navy-light p-4 rounded-full w-max'>
-                <Leaf className='text-tosca' />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-navy">4.2 Ton</h3>
-                <p className="text-sm font-semibold text-slate-500">CO2 Terhindarkan</p>
-              </div>
-            </div>
-            <div className="bg-navy-light h-2 rounded-full mt-4">
-              <div className="bg-navy h-2 rounded-full w-[60%]"></div>
             </div>
           </div>
         </div>
